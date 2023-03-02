@@ -64,8 +64,40 @@ Every thing in ruby is gem.
                                         
                             # DOWNLOAD THE FILES
 
-                * 
-                             
+                * Bootstrap => Navigation
+
+                                * Link up the navigations by just embed the erb <%= link_to, the_name_of_the_path, add a style into it%>
+        
+        * CRUD / SCAFFORDS
+        # In rails we do CRUD using a SCAFFOLD. Is majorly create DB model or a Table,therefore, use the below command :
+
+                & rails g scaffold Student first_name:string last_name:string phone:string course:string email:string
+
+                # Here said rails generate for us a Table called Student where it has the following fields name:
+
+                                * first_name
+                                * last_name
+                                * phone
+                                * course
+                                * email
+
+                and all fields name we have define there are datatypes accordingly :
+ 
+                                * string
+                                * string
+                                * string
+                                * string
+                                * string
+                then push to DB
+
+                                & rails db:migrate    
+
+                SCAFFOLD generates folders/files  for us ,thus avoiding doing it manually.Folders or files generated :
+
+                        * Models , Controllers, routers , views and e.t.c
+
+                
+                
 
 
 
