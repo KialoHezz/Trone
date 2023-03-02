@@ -14,12 +14,12 @@ Things you may want to cover:
         * RubyInstaller
         * IDE => Sublime , Vscode
 
-* Ruby / Rails / yarn/ version
+* Ruby / Rails / yarn/ node version
 
         * ruby -v
         * rails -v
         * yarn -v
-        * 
+        * node
 
 Every thing in ruby is gem.
 
@@ -39,14 +39,31 @@ Every thing in ruby is gem.
 
         * Start the Server :
 
-            rails s
+           & rails s
 
         * First Webpage And MVC [Model, views and controller]
 
             * Page[View]
-                #rails g controller home index => create a file,route,test,stylesheet
+                &rails g controller home index => create a file,route,test,stylesheet
                         # generate the report :
-                            # rails routes
+                            & rails routes
+        
+        * Partial links :
+
+                * Bootstrap 
+
+                        #Add using :
+                            # CDN :
+
+                                    # ADD TO THE HEAD OF LAYOUT/APPLICATION.HTML.ERB
+                                    # Create header file inside the views folder.
+                                    # Create the Navbar inside the file[ _header.html.erb ]                                    
+                                    # there #afterawards in base file EMBED 
+
+                                        * <%= render 'home/header'%>
+                                        
+                            # DOWNLOAD THE FILES
+                             
 
 
 
