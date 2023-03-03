@@ -1,7 +1,7 @@
-<%= form_with(model: student) do |form| %>
+<%= form_with(model: student) do |form|  %>
   <% if student.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+      <h6><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h6>
 
       <ul>
         <% student.errors.each do |error| %>
@@ -11,32 +11,28 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :first_name, style: "display: block" %>
-    <%= form.text_field :first_name %>
+  <div class="field form-group">
+    <%= form.text_field :first_name, class: "form-control", placeholder:"FirstName" %><br>
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_field :last_name, class: "form-control", placeholder:"LastName" %><br>
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_field :phone, class: "form-control", placeholder:"Phone" %><br>
+  </div>
+
+  <div class="field form-group">
+
+    <%= form.text_field :course , class: "form-control", placeholder:"Course"%><br>
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_field :email, class: "form-control" , placeholder:"Email"%><br>
   </div>
 
   <div>
-    <%= form.label :last_name, style: "display: block" %>
-    <%= form.text_field :last_name %>
-  </div>
-
-  <div>
-    <%= form.label :phone, style: "display: block" %>
-    <%= form.text_field :phone %>
-  </div>
-
-  <div>
-    <%= form.label :course, style: "display: block" %>
-    <%= form.text_field :course %>
-  </div>
-
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-secondary" %>
   </div>
 <% end %>
