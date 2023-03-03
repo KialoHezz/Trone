@@ -98,7 +98,27 @@ Every thing in ruby is gem.
 
                 
                 
+        * Devise User Mgt
 
+                Firstly Open Gemfile add > the devise and run :
+
+                        & bundle install
+                        & rails generate devise:install => Give Batch of Instruction :
+
+                                1. config/environments/development.rb Add below line of code :
+
+                                        config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+                                2. Dfn root URL
+                                3.  Flash message into base file
+                                4. Have different pages :
+                                        & rails g devise:views
+
+                        Create a model [DB] => for keeping tracking the User.
+                                & rails g devise user
+                        ,there afteraward push the migration :
+                                & rails db:migrate
+
+                
 
 
 * System dependencies
