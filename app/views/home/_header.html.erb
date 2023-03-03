@@ -13,26 +13,42 @@
         <li class="nav-item">
             <%= link_to 'About', home_about_path, class:'nav-link' %>
         </li>
-        <li class="nav-item">
-            <%= link_to 'Students', students_path, class:'nav-link' %>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Services
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Bulk SMS</a></li>
-            <li><a class="dropdown-item" href="#">Web Programming</a></li>
-            <li><a class="dropdown-item" href="#">Project Management</a></li>
-            <li><a class="dropdown-item" href="#">Accounting Course</a></li>
-            <li><a class="dropdown-item" href="#">ICT Course</a></li>
-            <li><a class="dropdown-item" href="#">Computer Packages</a></li>
-            <li><a class="dropdown-item" href="#">Customer Services</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Jion Us</a></li>
-          </ul>
-        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+              <%= link_to 'Sign Out', destroy_user_session_path, class:'nav-link', method: :delete  %>
+          </li>
+          <li class="nav-item">
+              <%= link_to 'Edit Profile',  edit_user_registration_path, class:'nav-link' %>
+          </li>
+          <li class="nav-item">
+              <%= link_to 'Students', students_path, class:'nav-link' %>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Services
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Bulk SMS</a></li>
+                <li><a class="dropdown-item" href="#">Web Programming</a></li>
+                <li><a class="dropdown-item" href="#">Project Management</a></li>
+                <li><a class="dropdown-item" href="#">Accounting Course</a></li>
+                <li><a class="dropdown-item" href="#">ICT Course</a></li>
+                <li><a class="dropdown-item" href="#">Computer Packages</a></li>
+                <li><a class="dropdown-item" href="#">Customer Services</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Jion Us</a></li>
+              </ul>
+            </li>
+        <% else %>
+          <li class="nav-item">
+          
+              <%= link_to 'Sign In', new_user_session_path, class:'nav-link' %>
+          </li>
+          <li class="nav-item">
+              <%= link_to 'Sign Up', new_user_registration_path, class:'nav-link' %>
+          </li>
       </ul>
+        <% end %>
 
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

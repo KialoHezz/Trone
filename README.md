@@ -118,6 +118,7 @@ Every thing in ruby is gem.
                         ,there afteraward push the migration :
                                 & rails db:migrate
 
+                Need Routes ;
                 
 
 
