@@ -67,4 +67,10 @@ class StudentsController < ApplicationController
     def student_params
       params.require(:student).permit(:first_name, :last_name, :phone, :course, :email)
     end
+
+  def search
+    @student = Students.where("email LIKE ?","%"+params[:q]+"%")
+  end
+
+
 end
