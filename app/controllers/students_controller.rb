@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :current_user, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   
   # GET /students or /students.json
   def index
@@ -14,7 +14,7 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     # @student = Student.new
-    @student = current_user.students.build
+    @student = current_user.student.build
   end
   
   # GET /students/1/edit
@@ -64,8 +64,8 @@ class StudentsController < ApplicationController
     end
   end
 
-  def current_user
-    @student = current_user.students.find_by(id params[:id])
+  def correct_user
+    @student = current_user.student.find_by(id: params[:id])
     redirect_to student_path, notice: "Not Authorized" if @student.nil?
   end
   
