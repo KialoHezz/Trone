@@ -32,7 +32,11 @@
     <%= form.text_field :email, class: "form-control" , placeholder:"Email"%><br>
   </div>
 
-  <div>
+  <div class="field form-group">
+    <%= form.number_field :user_id, id: :student_user_id, class: "form-control" , value: current_user.id , type: :hidden %><br>
+  </div>
+
+  <div class="action">
     <%= form.submit class: "btn btn-secondary" %>
   </div>
 <% end %>
