@@ -3,15 +3,15 @@
  <h6>Students</h6>
   <thead class="thead-dark">
     <tr>
-      <th scope="col">ID</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Phone</th>
-      <th scope="col">Course</th>
-      <th scope="col">Email</th>
-      <th scope="col">Created_at</th>
-      <th scope="col">User_id</th> 
-      <th scope="colspan="3"></th>    
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Phone</th>
+      <th>Course</th>
+      <th>Email</th>
+      <th>Created_at</th>
+      <th>User_id</th> 
+      <th colpan="3"></th>    
     </tr>
   </thead>
   <tbody>
@@ -25,6 +25,12 @@
         <td><%= student.course %></td>
         <td><%= student.email %></td>
         <td><%= student.created_at %></td>
+        <td><%= student.user_id %></td>
+        <td><%= link_to 'Show' %></td>
+        <td><%= link_to 'Edit' %></td>
+        <td><%= link_to 'Destroy' %></td>
+
+
       </tr>
      
             

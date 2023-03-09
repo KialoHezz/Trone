@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :current_user, only: [:edit, :update, :destroy]
   
   # GET /students or /students.json
   def index
@@ -12,7 +13,8 @@ class StudentsController < ApplicationController
   
   # GET /students/new
   def new
-    @student = Student.new
+    # @student = Student.new
+    @student = current_user.students.build
   end
   
   # GET /students/1/edit
@@ -25,7 +27,8 @@ class StudentsController < ApplicationController
   
   # POST /students or /students.json
   def create
-    @student = Student.new(student_params)
+    # @student = Student.new(student_params)
+    @student = current_user.student.build(student_params)
     
     respond_to do |format|
       if @student.save
@@ -59,6 +62,11 @@ class StudentsController < ApplicationController
       format.html { redirect_to students_url, notice: "Student was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def current_user
+    @student = current_user.students.find_by(id params[:id])
+    redirect_to student_path, notice: "Not Authorized" if @student.nil?
   end
   
   private
